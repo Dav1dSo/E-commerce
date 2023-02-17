@@ -9,9 +9,9 @@ use App\Http\Controllers\ProdutosAdminController;
 use App\Http\Controllers\AdicionarProdutosController;
 
 // Rotas
-Route::get('/', [HomeController::class, 'Home']);
-Route::get('/produtos', [ProdutosController::class, 'Produtos']);
-
+Route::get('/', [HomeController::class, 'Home'])->name('home');
+Route::get('/produtos/{produtos}', [ProdutosController::class, 'Produtos'])->name('produtos');
+     
 //admin
-Route::get("/produtosAdmin", [ProdutosAdminController::class, 'Admin']);
-Route::get("/adicionarProdutos", [AdicionarProdutosController::class, 'AdicionarProduto']);
+Route::get("/produtosAdmin", [ProdutosAdminController::class, 'Admin'])->name('admin.produtos');
+Route::get("/adicionarProdutos", [AdicionarProdutosController::class, 'AdicionarProduto'])->name('adiociona.produto');
