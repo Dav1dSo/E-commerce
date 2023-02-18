@@ -10,7 +10,7 @@ use App\Http\Controllers\AdicionarProdutosController;
 
 // Rotas
 Route::get('/', [HomeController::class, 'Home'])->name('home');
-Route::get('/produtos/{produtos}', [ProdutosController::class, 'Produtos'])->name('produtos');
+Route::get('/produtos/{produtos:nomeId}', [ProdutosController::class, 'Produtos'])->name('produtos');
      
 //admin
 Route::get("/produtosAdmin", [ProdutosAdminController::class, 'Admin'])->name('admin.produtos');
