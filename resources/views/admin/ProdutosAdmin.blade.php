@@ -6,7 +6,7 @@
         <div class="lg:w-2/3 w-full mx-auto overflow-auto">
             <div class="flex items-center justify-between mb-2">
                 <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Produtos</h1>
-                <a class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
+                <a href="/adicionarProdutos" class="flex ml-auto text-white bg-indigo-500 border-0 py-1.5 px-3 text-sm focus:outline-none hover:bg-indigo-600 rounded">Adicionar</a>
             </div>
             <table class="table-auto w-full text-left whitespace-no-wrap">
                 <thead>
@@ -26,7 +26,7 @@
                     <td class="px-4 py-3">
                         <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ $produto->imagem }}">
                     </td>
-                    <td class="px-4 py-3">{{ $produto->nome }}</td>
+                    <td class="px-4 py-3">{{ $produto->name }}</td>
                     <td class="px-4 py-3">R$ {{ $produto->preco }}</td>
                     <td class="px-4 py-3">{{ $produto->estoque }}</td>
                     <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">

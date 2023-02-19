@@ -20,7 +20,7 @@ class ProdutosFactory extends Factory
         $nome = $this->faker->word;
 
         return [
-            'nome' => $nome,
+            'name' => $nome,
             'nomeId' => Str::slug($nome),
             'imagem' => $this->faker->imageUrl,
             'preco' => $this->faker->randomFloat(1,20,50),
