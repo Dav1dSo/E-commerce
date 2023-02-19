@@ -20,11 +20,19 @@ class AdicionarProdutosController extends Controller
         $inputValues =  $request->validate([
             'name' => 'string|required',
             'preco' => 'integer|required',
-            'imagem' => 'file|nullable',
+            'imagem' => 'image|required',
             'estoque' => 'integer|required',  
             'descricao' => 'string|required'
         ]);
+
         $inputValues['nomeId'] = Str::slug($inputValues['name']);
+
+        if(!empty($inputValues['imagem']) && $inputValues['imagem']){ 
+            $file = $inputValues['imagem'];
+            $path = $file->store('public/produtos');
+            $inputValues['imagem'] = $path;
+        }
+
         Produtos::create($inputValues);
 
         return Redirect('/adicionarProdutos');
