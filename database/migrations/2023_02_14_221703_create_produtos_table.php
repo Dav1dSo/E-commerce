@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('preco')->default('0.00');
             $table->text('descricao')->nullable();
             $table->integer('estoque')->default(0);
-            $table->string('imagem')->nullable();
+            $table->string('imagem');
             $table->timestamps();
         });
     }

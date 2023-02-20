@@ -29,12 +29,15 @@ class AdicionarProdutosController extends Controller
 
         if(!empty($inputValues['imagem']) && $inputValues['imagem']){ 
             $file = $inputValues['imagem'];
-            $path = $file->store('public/produtos');
-            $inputValues['imagem'] = $path;
+            $path = $file->store('produtos');
+            $inputValues['imagem'] = $path; 
         }
 
         Produtos::create($inputValues);
 
+
+
         return Redirect('/adicionarProdutos');
     }
 }
+ 
