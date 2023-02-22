@@ -24,7 +24,7 @@
                 <tr @if($loop->even)class="bg-gray-100"@endif>
                     <td class="px-4 py-3">{{ $produto->id }}</td>
                     <td class="px-4 py-3">
-                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ $produto->imagem }}">
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ url("storage/{$produto->imagem}") }}">
                     </td>
                     <td class="px-4 py-3">{{ $produto->name }}</td>
                     <td class="px-4 py-3">R$ {{ $produto->preco }}</td>
