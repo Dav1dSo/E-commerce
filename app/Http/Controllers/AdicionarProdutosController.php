@@ -35,8 +35,6 @@ class AdicionarProdutosController extends Controller
 
         Produtos::create($inputValues);
 
-
-
         return Redirect('/adicionarProdutos');
     }
 }
