@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="p-2 w-full">
-                        <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Salvar</button>
+                        <button type="submit" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Editar</button>
                     </div>
                 </div>
             </form>
