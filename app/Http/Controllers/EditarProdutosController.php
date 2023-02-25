@@ -15,7 +15,8 @@ class EditarProdutosController extends Controller
         return view('admin.EditarProdutos', ['produtos' => $produtos]);
     }
 
-    public function UpdateProduto(Produtos $produtos, Request $request) {
+    public function UpdateProduto(Request $request) {
+        $id = $request->id;
         $input = $request->validate([
             'name' => 'string|required',
             'preco' => 'string|required',
@@ -32,8 +33,9 @@ class EditarProdutosController extends Controller
             $input['imagem'] = $path;
         }
 
-        $produtos->fill($input);
-        $produtos->save();
+        Produtos::findOrFail($request->id)->update($request->all()); 
+
+        
         return Redirect::route('admin.produtos');
     }
 }
