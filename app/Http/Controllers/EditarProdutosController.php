@@ -16,7 +16,7 @@ class EditarProdutosController extends Controller
 
     public function UpdateProduto(ProdutosRequest $request, $id) {
         
-        $produtos = Produtos::find($id);
+        $produto = Produtos::find($id);
 
         $inputValues =  $request->all(); 
 
@@ -28,8 +28,15 @@ class EditarProdutosController extends Controller
             $inputValues['imagem'] = $path; 
         }
 
-        $produtos->update($inputValues);
+        $produto->update($inputValues);
 
         return Redirect('/produtosAdmin');
     }
+
+    public function delete($id) {
+        $produto = Produtos::find($id);
+        $produto->delete();
+        return Redirect('/produtosAdmin');
+    }
+
 }
