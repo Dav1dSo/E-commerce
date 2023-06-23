@@ -9,13 +9,14 @@ use App\Models\Produtos;
 
 class EditarProdutosController extends Controller
 {
-    public function EditarProdutos() {
-        $produtos = Produtos::all();
-        return view('admin.EditarProdutos', ['produtos' => $produtos]);
+    public function EditarProdutos($id) {
+        $produto = Produtos::find($id);
+        return view('admin.EditarProdutos', ['produto' => $produto]);
     }
 
     public function UpdateProduto(ProdutosRequest $request, $id) {
- 
+        
+        $produtos = Produtos::find($id);
 
         $inputValues =  $request->all(); 
 
@@ -24,12 +25,10 @@ class EditarProdutosController extends Controller
         if(!empty($inputValues['imagem']) && $inputValues['imagem']){ 
             $file = $inputValues['imagem'];
             $path = $file->store('produtos');
-            dd($file);
             $inputValues['imagem'] = $path; 
         }
 
-        $produtos = new Produtos;
-
+        $produtos->update($inputValues);
 
         return Redirect('/produtosAdmin');
     }

@@ -7,8 +7,6 @@
             <div class="flex items-center justify-between mb-2">
                 <h1 class="text-2xl font-medium title-font mb-2 text-gray-900">Editar produto</h1>
             </div>
-            @foreach($produtos as $produto)
-            @endforeach
             <form enctype="multipart/form-data" method="POST" action="/editarProdutos/{{ $produto->id }}">
                 @csrf
                 @method('put')
