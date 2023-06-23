@@ -15,27 +15,27 @@ class EditarProdutosController extends Controller
         return view('admin.EditarProdutos', ['produtos' => $produtos]);
     }
 
-    public function UpdateProduto(Request $request) {
-        $id = $request->id;
-        $input = $request->validate([
+    public function UpdateProduto(Request $request, $id) {
+
+        $inputValues =  $request->validate([
             'name' => 'string|required',
-            'preco' => 'string|required',
-            'estoque' => 'integer|nullable',
-            'imagem' => 'file|nullable',
-            'descricao' => 'string|nullable',
+            'preco' => 'required',
+            'imagem' => 'image|file',
+            'estoque' => 'integer|required',  
+            'descricao' => 'string|required'
         ]);
 
-        $input['nomeId'] = Str::slug($input['name']);
+        $inputValues['nomeId'] = Str::slug($inputValues['name']);
 
-        if (!empty($input['imagem']) && $input['imagem']->isValid()) {
-            $file = $input['imagem'];
+        if(!empty($inputValues['imagem']) && $inputValues['imagem']){ 
+            $file = $inputValues['imagem'];
             $path = $file->store('produtos');
-            $input['imagem'] = $path;
+            $inputValues['imagem'] = $path; 
         }
 
-        Produtos::findOrFail($request->id)->update($request->all()); 
+        $produtos = new Produtos;
 
-        
-        return Redirect::route('admin.produtos');
+
+        return Redirect('/produtosAdmin');
     }
 }

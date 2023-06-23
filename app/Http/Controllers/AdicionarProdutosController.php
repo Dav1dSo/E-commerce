@@ -19,8 +19,8 @@ class AdicionarProdutosController extends Controller
 
         $inputValues =  $request->validate([
             'name' => 'string|required',
-            'preco' => 'integer|required',
-            'imagem' => 'image|required',
+            'preco' => 'required',
+            'imagem' => 'image|file',
             'estoque' => 'integer|required',  
             'descricao' => 'string|required'
         ]);
@@ -35,7 +35,7 @@ class AdicionarProdutosController extends Controller
 
         Produtos::create($inputValues);
 
-        return Redirect('/adicionarProdutos');
+        return Redirect('/produtosAdmin');
     }
 }
  

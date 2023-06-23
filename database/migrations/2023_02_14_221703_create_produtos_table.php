@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('nomeId');
-            $table->decimal('preco')->default('0.00');
+            $table->decimal('preco');
             $table->text('descricao')->nullable();
             $table->integer('estoque')->default(0);
-            $table->string('imagem');
+            $table->string('imagem')->default('');
             $table->timestamps();
         });
     }

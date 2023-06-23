@@ -10,7 +10,6 @@
             @foreach($produtos as $produto)
             @endforeach
             <form enctype="multipart/form-data" method="POST" action="/editarProdutos/{{ $produto->id }}">
-                <input value="{{ $produto->id }}" type="hidden" name="id">
                 @csrf
                 @method('put')
                 <div class="flex flex-wrap">
