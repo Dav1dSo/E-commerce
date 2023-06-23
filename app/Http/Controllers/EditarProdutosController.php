@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProdutosRequest;
 use Illuminate\Support\Str;
-use Redirect;
 use App\Models\Produtos;
 
 class EditarProdutosController extends Controller
@@ -15,21 +14,17 @@ class EditarProdutosController extends Controller
         return view('admin.EditarProdutos', ['produtos' => $produtos]);
     }
 
-    public function UpdateProduto(Request $request, $id) {
+    public function UpdateProduto(ProdutosRequest $request, $id) {
+ 
 
-        $inputValues =  $request->validate([
-            'name' => 'string|required',
-            'preco' => 'required',
-            'imagem' => 'image|file',
-            'estoque' => 'integer|required',  
-            'descricao' => 'string|required'
-        ]);
+        $inputValues =  $request->all(); 
 
         $inputValues['nomeId'] = Str::slug($inputValues['name']);
 
         if(!empty($inputValues['imagem']) && $inputValues['imagem']){ 
             $file = $inputValues['imagem'];
             $path = $file->store('produtos');
+            dd($file);
             $inputValues['imagem'] = $path; 
         }
 

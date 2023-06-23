@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('nomeId');
-            $table->decimal('preco');
+            $table->string('preco');
             $table->text('descricao')->nullable();
             $table->integer('estoque')->default(0);
             $table->string('imagem')->default('');
