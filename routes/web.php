@@ -20,4 +20,4 @@ Route::post("/adicionarProdutos/create", [AdicionarProdutosController::class, 'C
 Route::any("/editarProdutos/{id}/edit", [EditarProdutosController::class, 'EditarProdutos'])->name('edita.produtos');// Edita produto
 Route::put("/editarProdutos/{produto}", [EditarProdutosController::class, 'UpdateProduto'])->name('edita.produto');// Edita produto
 Route::any('delete/{id}', [EditarProdutosController::class, 'delete'])->name('delete.produto');
-
+ 
