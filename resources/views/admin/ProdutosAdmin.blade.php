@@ -37,7 +37,7 @@
                                             src="{{ url("storage/{$produto->imagem}") }}">
                                     </td>
                                     <td class="px-4 py-3">{{ $produto->name }}</td>
-                                    <td class="px-4 py-3">R$ {{ $produto->preco }}</td>
+                                    <td class="px-4 py-3">R$ {{ number_format($produto->preco, 2) }}</td>
                                     <td class="px-4 py-3">{{ $produto->estoque }}</td>
                                     <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
                                         <a href="/editarProdutos/{{ $produto->id }}/edit"
